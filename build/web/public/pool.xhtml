@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Pool</title>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <!-- Optional theme --> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="cha.css" />
+    </h:head>
+    <h:body>
+        <p:ajaxStatus id="completeAjax" oncomplete="acertaWidgets()" >
+	</p:ajaxStatus>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+                XXXXXX
+              </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+            <p class="navbar-text bar4l">jhjkshdkjahdkja kashdkjshd</p>
+            </div><!--/.navbar-collapse -->
+          </div>
+        </nav>
+
+        <div class="jumbotron">
+          <div class="container">
+            <h1>Bem vindo</h1>
+            <p>Olá! Esta página está em construção.</p>
+            <h:form id="form">
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                    <p:outputLabel for="question" value="Question:" />
+                    <p:outputLabel id="question" value="#{poolView.question}" />
+                    <p:outputLabel for="alternatives" value="Choose one:" />
+                    <p:selectOneRadio id="alternatives" value="#{poolView.answer}">
+                        <f:selectItems value="#{poolView.alternatives}" var="c" itemLabel="#{alternative}" itemValue="#{alternative}"/>
+                        <f:ajax render="buttons" />
+                    </p:selectOneRadio>
+                </h:panelGrid>
+                <h:panelGroup id="buttons">
+                    <p:commandButton styleClass="btn btn-success" action="#{poolView.next}" value="Next" update="form" ajax="true" rendered="#{poolView.hasMoreQuestions()}" disabled="#{poolView.answer == null}"/>
+                    <p:commandButton styleClass="btn btn-success" action="#{poolView.finish}" value="Finish" ajax="false" rendered="#{!poolView.hasMoreQuestions()}" disabled="#{poolView.answer == null}"/>
+                </h:panelGroup>
+            </h:form>
+          </div>
+        </div>
+        <hr />
+        <div class="container">
+            <footer>
+              <p>XXXXXX 2015</p>
+            </footer>
+        </div> <!-- /container -->
+        
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            function acertaWidgets() {
+                $(".ui-button").removeClass("ui-button");
+            }
+            $(document).ready(function() {
+                acertaWidgets();
+            });
+        </script>
+    </h:body>
+</html>
+
