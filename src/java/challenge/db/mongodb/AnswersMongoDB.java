@@ -6,9 +6,12 @@
 package challenge.db.mongodb;
 
 import challenge.entities.Answer;
+import challenge.entities.Question;
 import challenge.entities.collections.Answers;
-import com.mongodb.client.MongoCollection;
+import challenge.entities.helpers.AnswerSummary;
 import com.mongodb.client.MongoDatabase;
+import java.util.Date;
+import java.util.List;
 import org.bson.types.ObjectId;
 
 /**
@@ -23,5 +26,15 @@ public class AnswersMongoDB extends CollectionMongoDB<Answer> implements Answers
     @Override
     public Object getIdMongoDB(Answer answer) {
         return answer == null? null : new ObjectId(answer.getId());
+    }
+
+    @Override
+    public List<Answer> get(Question question, Date initial, Date end) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public AnswerSummary getSummary(Question question, Date initial, Date end) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

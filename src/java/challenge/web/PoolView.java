@@ -6,7 +6,6 @@
 package challenge.web;
 
 import challenge.db.mongodb.SessionFactoryMongoDB;
-import challenge.mail.Teste;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -73,7 +72,6 @@ public class PoolView {
     }
     
     public void finish() {
-        SessionFactoryMongoDB.test();
     }
 
     public String getAnswer() {

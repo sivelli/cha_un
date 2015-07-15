@@ -1,5 +1,13 @@
 package challenge.services;
 
+import challenge.db.DBSession;
+import challenge.entities.Pool;
+import challenge.entities.Question;
+import challenge.entities.collections.Answers;
+import challenge.entities.helpers.AnswerSummary;
+import challenge.entities.helpers.PoolSummary;
+import java.util.Date;
+
 public class PoolStatistics {
     public PoolSummary getPoolSummary(DBSession session, Pool pool, Date initial, Date end) {
         PoolSummary sum = null;

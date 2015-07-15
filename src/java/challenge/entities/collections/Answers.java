@@ -6,6 +6,10 @@
 package challenge.entities.collections;
 
 import challenge.entities.Answer;
+import challenge.entities.Question;
+import challenge.entities.helpers.AnswerSummary;
+import java.util.Date;
+import java.util.List;
 
 /**
  *

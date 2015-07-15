@@ -10,6 +10,7 @@ import challenge.entities.Entity;
 import challenge.entities.Pool;
 import challenge.entities.Question;
 import challenge.entities.User;
+import challenge.entities.collections.Answers;
 import challenge.entities.collections.Pools;
 import challenge.entities.collections.Questions;
 import challenge.entities.collections.Users;
@@ -28,6 +29,7 @@ public class SessionMongoDB implements DBSession {
     private Users users;
     private Pools pools;
     private Questions questions;
+    private Answers answers;
     
     public SessionMongoDB() {
     }
@@ -107,5 +109,13 @@ public class SessionMongoDB implements DBSession {
         else if (entity.getClass() == Pool.class) {
             pools.fetch((Pool)entity);
         }
+    }
+
+    @Override
+    public Answers getAnswers() {
+        if (answers == null) {
+            answers = new AnswersMongoDB(db);
+        }
+        return answers;
     }
 }
